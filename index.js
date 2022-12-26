@@ -5,9 +5,9 @@ submitHandle = () => {
     if (value === "") {
         alert("Nhập số vào!");
     } else {
-        arr = value.split(" ");
+        arr = value.trim().split(",");
         arr.forEach(item => {
-            if (item.match(reg)) {
+            if (item.trim().match(reg)) {
                 const random = randomElement(arr);
                 document.querySelector(".result b").innerHTML = random;
             }
