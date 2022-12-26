@@ -2,8 +2,7 @@ let arr = [];
 const render = () => {
     const arrShow = document.querySelector(".arrShow");
     arrShow.innerHTML = "";
-    if (arr.length === 0) return arrShow.innerText = "Chưa có gì trong mảng.";
-    arrShow.append("Số đã add: ");
+    arrShow.innerText = arr.length === 0 ? "Chưa có gì trong mảng." : "Số đã add: ";
     for (let key in arr) arrShow.append(createBadge(arr[key], key));
 }
 
