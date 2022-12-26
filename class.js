@@ -7,9 +7,9 @@ export class RandomNumber {
         if (this.arr.length === 0) return "Chưa có gì trong mảng";
         const renderHTML = this.arr.reduce((html, item, index) => {
             return html += `
-                <span class="badge badge-info mr-2 px-2 py-1">
+                <span class="badge badge-info mr-1 my-1 px-2 py-1">
                     ${item}
-                    <i class="fa-solid fa-xmark ml-2 icon" onclick="removeElement(${index})"></i>
+                    <i class="fa-solid fa-xmark icon ml-1" onclick="removeElement(${index})"></i>
                 </span>
             `;
         }, "");
