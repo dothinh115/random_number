@@ -19,7 +19,7 @@ const createBadge = (inner, index) => {
     icon.addEventListener("click", () => {
         removeElement(index);
     });
-    badge.classList = "badge badge-info mr-2";
+    badge.classList = "badge badge-info mr-2 px-2 py-1";
     badge.append(inner);
     badge.append(icon);
     return badge;
