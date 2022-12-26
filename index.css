@@ -11,3 +11,12 @@
 .result {
     margin-top: 50px;
 }
+
+.icon {
+    padding: 2px 3px;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    background-color: #eee;
+    color: brown;
+    cursor: pointer;
+}

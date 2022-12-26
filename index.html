@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./index.css">
     <title>Random Number</title>
 </head>
@@ -14,14 +17,15 @@
 <body>
     <section class="main">
         <div class="container">
+            <div class="arrShow alert alert-info"></div>
             <form>
                 <div class="form-group">
                     <label>Nhập số: </label>
-                    <input type="text" class="form-control" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted">Các số cách nhau bởi dấu "," (phẩy).</small>
+                    <input type="number" class="form-control" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">Enter sau mỗi số.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Hóng</button>
             </form>
+            <button type="submit" class="btn btn-primary" onclick="showResult()">Hóng</button>
             <div class="result alert alert-info">
                 Kết quả: <b></b>
             </div>
