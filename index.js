@@ -23,7 +23,7 @@ const removeElement = index => {
 }
 
 const inputChangeHandle = (e) => {
-    err = "";
+    if(e.key !== "Enter") err = "";
     const value = e.target.value;
     const reg = /^[0-9]+$/;
     if (!value.trim().match(reg) && value !== "") return err = "Chỉ được nhập số!";
@@ -33,12 +33,14 @@ const inputChangeHandle = (e) => {
 
 const submitHandle = (e) => {
     e.preventDefault();
-    const value = document.querySelector("input").value;
+    const input = document.querySelector("input");
+    if(input.value === "") err = "Nhập số vào đã!" ;
+    showError();
     if (!err) {
-        arr.push(value);
-        document.querySelector("input").value = "";
+        arr.push(input.value);
+        input.value = "";
+        err = "";
     }
-    err = "";
     render();
 }
 
