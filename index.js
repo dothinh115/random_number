@@ -1,4 +1,5 @@
 let arr = [];
+let err = "";
 const render = () => {
     const arrShow = document.querySelector(".arrShow");
     arrShow.innerHTML = "";
@@ -21,31 +22,47 @@ const removeElement = index => {
     render();
 }
 
-submitHandle = () => {
-    const value = document.querySelector("input").value;
+const inputChangeHandle = (e) => {
+    err = "";
+    const value = e.target.value;
     const reg = /^[0-9]+$/;
-    if (value === "") return alert("Nhập số vào!");
-    if (!value.trim().match(reg)) return alert("Chỉ được nhập số!");
+    if (!value.trim().match(reg) && value !== "") return err = "Chỉ được nhập số!";
     const find = arr.find(item => item === value.trim());
-    find ? alert("Số đã có trong mảng!") : arr.push(value.trim());
-    document.querySelector("input").value = "";
+    if (find) err = "Số đã có trong mảng!";
+}
+
+const submitHandle = (e) => {
+    e.preventDefault();
+    const value = document.querySelector("input").value;
+    if (!err) {
+        arr.push(value);
+        document.querySelector("input").value = "";
+    }
+    err = "";
     render();
+}
+
+const showError = () => {
+    const errorEl = document.querySelector(".invalid-feedback");
+    const inputEl = document.querySelector("input");
+    errorEl.innerText = err;
+    err ? inputEl.classList.add("is-invalid") : inputEl.classList.remove("is-invalid");
 }
 
 const showResult = () => {
     const result = document.querySelector(".result b");
-    arr.length === 0 ? alert("Nhập số vào mảng đã!") : result.innerText = randomElement(arr);
+    arr.length === 0 ? err = "Nhập số vào mảng đã!" : result.innerText = randomElement(arr);
 }
 
-randomElement = arr => {
+const randomElement = arr => {
     const number = arr.length;
     const randomNumber = Math.floor(Math.random() * number);
     return arr[randomNumber];
 }
 
-document.querySelector("form").addEventListener("submit", (event) => {
-    submitHandle();
-    event.preventDefault();
+document.querySelector("form").addEventListener("keyup", (e) => {
+    inputChangeHandle(e);
+    showError();
 });
-
+document.querySelector("form").addEventListener("submit", (e) => submitHandle(e));
 render();
