@@ -4,10 +4,11 @@ const error = new Validation;
 let arrShow = document.querySelector(".arrShow");
 let input = document.querySelector("input");
 let result = document.querySelector(".result b");
+const errorEl = document.querySelector(".invalid-feedback");
 
 const renderHTML = () => arrShow.innerHTML = rnumb.render();
 
-window.removeElement = index => {
+window.removeNumber = index => {
     rnumb.removeNumber(index);
     renderHTML();
 }
@@ -15,8 +16,7 @@ window.removeElement = index => {
 const inputChangeHandle = (e) => {
     if(e.key === "Enter") return;
     showError();
-    if(error.checkIfNumber(input.value)) return showError(error.message);
-    if(error.checkIfExist(rnumb.arr, input.value)) return showError(error.message);
+    if(error.checkIfExist(rnumb.arr, input.value) || error.checkIfNumber(input.value)) return showError(error.message);
 }
 
 const submitHandle = (e) => {
@@ -30,7 +30,6 @@ const submitHandle = (e) => {
 }
 
 const showError = message => {
-    const errorEl = document.querySelector(".invalid-feedback");
     errorEl.innerText = message;
     message ? input.classList.add("is-invalid") : input.classList.remove("is-invalid");
 }

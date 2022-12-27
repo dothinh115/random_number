@@ -9,7 +9,7 @@ export class RandomNumber {
             return html += `
                 <span class="badge badge-info mr-1 my-1 px-2 py-1">
                     ${item}
-                    <i class="fa-solid fa-xmark icon ml-1" onclick="removeElement(${index})"></i>
+                    <i class="fa-solid fa-xmark icon ml-1" onclick="removeNumber(${index})"></i>
                 </span>
             `;
         }, "");
