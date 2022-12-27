@@ -31,18 +31,14 @@ export class Validation {
     checkIfNumber = value => {
         const reg = /^[0-9]+$/;
         this.message = "";
-        if (!value.trim().match(reg) & value.trim() !== "") {
-            this.message = "Chỉ được nhập số";
-        }
+        if (!value.trim().match(reg) & value.trim() !== "") this.message = "Chỉ được nhập số";
         return this.message;
     }
 
     checkIfExist = (arr, value) => {
         this.message = "";
         const find = arr.find(item => item == value);
-        if (find) {
-            this.message = "Số đã tồn tại!";
-        }
+        if (find) this.message = "Số đã tồn tại!";
         return this.message;
     }
 }
