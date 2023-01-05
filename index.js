@@ -15,8 +15,8 @@ window.removeNumber = index => {
 
 const inputChangeHandle = (e) => {
     if(e.key === "Enter") return;
-    showError();
-    if(error.checkIfExist(rnumb.arr, input.value) || error.checkIfNumber(input.value)) return showError(error.message);
+    error.validFunction(input.value, rnumb.arr);
+    return showError(error.message);
 }
 
 const submitHandle = (e) => {

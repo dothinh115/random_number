@@ -28,17 +28,12 @@ export class RandomNumber {
 export class Validation {
     message = "";
 
-    checkIfNumber = value => {
+    validFunction (value, arr) {
         const reg = /^[0-9]+$/;
+        const find = arr.find(item => item == value);
         this.message = "";
         if (!value.trim().match(reg) & value.trim() !== "") this.message = "Chỉ được nhập số";
-        return this.message;
-    }
-
-    checkIfExist = (arr, value) => {
-        this.message = "";
-        const find = arr.find(item => item == value);
         if (find) this.message = "Số đã tồn tại!";
         return this.message;
-    }
+    } 
 }
