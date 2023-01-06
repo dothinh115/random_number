@@ -27,14 +27,25 @@ export class RandomNumber {
 
 export class Validation {
   message = "";
+  value = "";
+  arr = [];
+  constructor(value, arr) {
+    this.value = value;
+    this.arr = arr;
+  }
 
-  validFunction(value, arr) {
+  validFunction() {
     const reg = /^[0-9]+$/;
-    const find = arr.find((item) => item == value);
+    const find = this.arr.find((item) => item == this.value);
     this.message = "";
-    if (!value.trim().match(reg) && value.trim() !== "")
+    if (!this.value.trim().match(reg) && this.value.trim() !== "") {
       this.message = "Chỉ được nhập số";
-    if (find) this.message = "Số đã tồn tại!";
+    } else if (find) {
+      this.message = "Số đã tồn tại!";
+    }
+  }
+
+  showError() {
     return this.message;
   }
 }
