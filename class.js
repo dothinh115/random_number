@@ -37,7 +37,6 @@ export class Validation {
   validFunction() {
     const reg = /^[0-9]+$/;
     const find = this.arr.find((item) => item == this.value);
-    this.message = "";
     if (!this.value.trim().match(reg) && this.value.trim() !== "") {
       this.message = "Chỉ được nhập số";
     } else if (find) {
